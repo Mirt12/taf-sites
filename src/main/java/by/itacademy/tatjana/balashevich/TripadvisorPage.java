@@ -1,6 +1,7 @@
 package by.itacademy.tatjana.balashevich;
 
 public class TripadvisorPage {
+
     String btnCookiesXPath = "//*[@id='onetrust-accept-btn-handler']";
     String btnSignInXPath = "//span[contains(text(),'Sign in')]";
     String btnContinueWithEmailXPath = "//span[contains(text(),'Continue with email')]";
