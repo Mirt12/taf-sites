@@ -13,35 +13,34 @@ import org.openqa.selenium.support.ui.Wait;
 import java.time.Duration;
 import java.util.function.Function;
 
-public class DominosTest {
-    DominosPage dominosPage = new DominosPage();
+public class PizzatempoPageTest {
+    PizzatempoPage pizzatempoPage=new PizzatempoPage();
     ChromeOptions options = new ChromeOptions();
 
     @Test
-    public void enterWithIncorrectEmailAndAnyPassword() throws InterruptedException {
+    public void enterWithEmptyEmailAndEmptyPassword(){
         //open browser incognito and w/o cash:
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://dominos.by");
+        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
                 .pollingEvery(Duration.ofSeconds(5L))
                 .ignoring(NoSuchElementException.class);
         //fluent Wait - Search element:
-        WebElement btnToCloseBunner = wait.until(new Function<WebDriver, WebElement>() {
+        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath("//button[@class='custom-button custom-button--primary custom-button--size-medium']"));
+                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
             }
         });
-        btnToCloseBunner.click();
-
-
-        /*
-        public void inputEmail(String email){
-            webDriver.findElement(By.xpath(inputEmailXPath)).sendKeys(email);
-        }
-         */
+        inputEmail.sendKeys("");
+        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
+        inputPassword.sendKeys("");
+        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
+        btnSearch.click();
+        //toDo
     }
+
 }
