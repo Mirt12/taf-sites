@@ -1,5 +1,7 @@
 package by.itacademy.tatjana.balashevich;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -16,14 +18,24 @@ import java.util.function.Function;
 public class DominosTest {
     DominosPage dominosPage = new DominosPage();
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver;
+
+    @Before
+    public void testSetUp() {
+        options.addArguments("--incognito");
+        options.addArguments("--disable-cache");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.get("https://dominos.by");
+    }
+
+    @After
+    public void testToFinish() {
+        driver.quit();
+    }
 
     @Test
     public void enterWithIncorrectEmailAndAnyPassword() throws InterruptedException {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://dominos.by");
-
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
                 .pollingEvery(Duration.ofSeconds(5L))
@@ -34,10 +46,8 @@ public class DominosTest {
             }
         });
         btnToCloseBunner.click();
-
         WebElement btnEnterHeader = driver.findElement(By.xpath(dominosPage.btnVoityInHeader));
         btnEnterHeader.click();
-
         WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return driver.findElement(By.xpath(dominosPage.inputEmail));
@@ -52,16 +62,10 @@ public class DominosTest {
         inputPassword.sendKeys("ZZZZZZ");
         WebElement btnEnter = driver.findElement(By.xpath(dominosPage.btnVoityInModal));
         btnEnter.click();
-        driver.quit();
     }
 
     @Test
     public void enterWithCorrectEmail() throws InterruptedException {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://dominos.by");
-
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
                 .pollingEvery(Duration.ofSeconds(5L))
@@ -72,10 +76,8 @@ public class DominosTest {
             }
         });
         btnToCloseBunner.click();
-
         WebElement btnEnterHeader = driver.findElement(By.xpath(dominosPage.btnVoityInHeader));
         btnEnterHeader.click();
-
         WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return driver.findElement(By.xpath(dominosPage.inputEmail));
@@ -90,11 +92,5 @@ public class DominosTest {
         inputPassword.sendKeys("ZZZZZZ");
         WebElement btnEnter = driver.findElement(By.xpath(dominosPage.btnVoityInModal));
         btnEnter.click();
-        driver.quit();
     }
-     /*
-        public void inputEmail(String email){
-            webDriver.findElement(By.xpath(inputEmailXPath)).sendKeys(email);
-        }
-         */
 }
