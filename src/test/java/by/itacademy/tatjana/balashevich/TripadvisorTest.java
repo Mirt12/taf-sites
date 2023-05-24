@@ -1,5 +1,7 @@
 package by.itacademy.tatjana.balashevich;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -14,17 +16,26 @@ import java.time.Duration;
 import java.util.function.Function;
 
 public class TripadvisorTest {
-    //access to variables of not created object:
     TripadvisorPage tripadvisorPage = new TripadvisorPage();
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver;
+
+    @Before
+    public void testSetUp() {
+        options.addArguments("--incognito");
+        options.addArguments("--disable-cache");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.get("https://www.tripadvisor.com");
+    }
+
+    @After
+    public void testToFinish() {
+        driver.quit();
+    }
 
     @Test
     public void enterWithEmptyEmailAndEmptyPassword() throws InterruptedException {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.tripadvisor.com");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -70,16 +81,10 @@ public class TripadvisorTest {
             }
         });
         btnSignInFrame.click();
-        driver.quit();
     }
 
     @Test
     public void enterWithInvalidEmail() throws InterruptedException {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.tripadvisor.com");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -125,16 +130,10 @@ public class TripadvisorTest {
             }
         });
         btnSignInFrame.click();
-        driver.quit();
     }
 
     @Test
     public void enterValidEmailAndEmptyPassword() throws InterruptedException {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.tripadvisor.com");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -180,16 +179,10 @@ public class TripadvisorTest {
             }
         });
         btnSignInFrame.click();
-        driver.quit();
     }
 
     @Test
     public void enterValidEmailAndInvalidPassword() throws InterruptedException {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.tripadvisor.com");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -235,6 +228,5 @@ public class TripadvisorTest {
             }
         });
         btnSignInFrame.click();
-        driver.quit();
     }
 }
