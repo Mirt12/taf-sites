@@ -18,13 +18,24 @@ import java.util.function.Function;
 public class BookingTest {
     BookingPage bookingPage = new BookingPage();
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver;
+
+    @Before
+    public void testSetUp() {
+        options.addArguments("--incognito");
+        options.addArguments("--disable-cache");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.get("https://www.booking.com");
+    }
+
+    @After
+    public void testToFinish() {
+        driver.quit();
+    }
 
     @Test
     public void enterWithEmptyEmail() {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.booking.com");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -52,16 +63,10 @@ public class BookingTest {
         });
         btnContinueWithEmail.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithInvalidEmail() {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-
-        driver.get("https://www.booking.com");
         WebElement btnSignIn = driver.findElement(By.xpath(bookingPage.btnSignInXPath));
         btnSignIn.click();
 
@@ -71,16 +76,10 @@ public class BookingTest {
         WebElement btnContinueWithEmail = driver.findElement(By.xpath(bookingPage.btnContinueWithEmailXPath));
         btnContinueWithEmail.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithValidEmail() {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-
-        driver.get("https://www.booking.com");
         WebElement btnSignIn = driver.findElement(By.xpath(bookingPage.btnSignInXPath));
         btnSignIn.click();
 
@@ -90,16 +89,10 @@ public class BookingTest {
         WebElement btnContinueWithEmail = driver.findElement(By.xpath(bookingPage.btnContinueWithEmailXPath));
         btnContinueWithEmail.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithValidEmailAndEmptyPassword() {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-
-        driver.get("https://www.booking.com");
         WebElement btnSignIn = driver.findElement(By.xpath(bookingPage.btnSignInXPath));
         btnSignIn.click();
 
@@ -115,16 +108,10 @@ public class BookingTest {
         WebElement btnSignInFinal = driver.findElement(By.xpath(bookingPage.btnSignInFinalXPath));
         btnSignInFinal.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithValidEmailAndInValidPassword() {
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-
-        driver.get("https://www.booking.com");
         WebElement btnSignIn = driver.findElement(By.xpath(bookingPage.btnSignInXPath));
         btnSignIn.click();
 
@@ -140,6 +127,5 @@ public class BookingTest {
         WebElement btnSignInFinal = driver.findElement(By.xpath(bookingPage.btnSignInFinalXPath));
         btnSignInFinal.click();
         //toDo
-        driver.quit();
     }
 }
