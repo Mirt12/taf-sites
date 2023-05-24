@@ -1,5 +1,7 @@
 package by.itacademy.tatjana.balashevich;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -16,14 +18,24 @@ import java.util.function.Function;
 public class PizzatempoPageTest {
     PizzatempoPage pizzatempoPage = new PizzatempoPage();
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver;
+
+    @Before
+    public void testSetUp() {
+        options.addArguments("--incognito");
+        options.addArguments("--disable-cache");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.get("https://www.pizzatempo.by");
+    }
+
+    @After
+    public void testToFinish() {
+        driver.quit();
+    }
 
     @Test
     public void enterWithEmptyEmailAndEmptyPassword() {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -41,16 +53,10 @@ public class PizzatempoPageTest {
         WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
         btnSearch.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithInvalidEmail() {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -68,16 +74,10 @@ public class PizzatempoPageTest {
         WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
         btnSearch.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithEmptyEmailAndAnyPassword() {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -95,16 +95,10 @@ public class PizzatempoPageTest {
         WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
         btnSearch.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithValidEmailAndEmptyPassword() {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -122,16 +116,10 @@ public class PizzatempoPageTest {
         WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
         btnSearch.click();
         //toDo
-        driver.quit();
     }
 
     @Test
     public void enterWithValidEmailAndAnyPassword() {
-        //open browser incognito and w/o cash:
-        options.addArguments("--incognito");
-        options.addArguments("--disable-cache");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.pizzatempo.by");
         //fluent Wait- Set up:
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30L))
@@ -149,6 +137,5 @@ public class PizzatempoPageTest {
         WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
         btnSearch.click();
         //toDo
-        driver.quit();
     }
 }
