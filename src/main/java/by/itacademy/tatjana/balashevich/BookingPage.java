@@ -7,4 +7,5 @@ public class BookingPage {
     String btnContinueWithEmailXPath = "//button[@type='submit']/span[contains(text(), 'Continue with email')]";
     String inputPasswordXPath = "//input[@id='password']";
     String btnSignInFinalXPath = "//button/span[contains(text(),'Sign in')]";
+
 }

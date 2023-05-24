@@ -4,18 +4,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
 import java.util.function.Function;
 
-public class BookingTest {
+public class  BookingTest {
     BookingPage bookingPage = new BookingPage();
     ChromeOptions options = new ChromeOptions();
     WebDriver driver;
@@ -37,30 +34,15 @@ public class BookingTest {
     @Test
     public void enterWithEmptyEmail() {
         //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         //fluent Wait - Search element:
-        WebElement btnSignIn = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(bookingPage.btnSignInXPath));
-            }
-        });
+        WebElement btnSignIn = LoadHelper.getElementByXpath(wait, bookingPage.btnSignInXPath);
         btnSignIn.click();
         //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(bookingPage.inputEmailXPath));
-            }
-        });
+        WebElement inputEmail = LoadHelper.getElementByXpath(wait, bookingPage.inputEmailXPath);
         inputEmail.sendKeys("");
         //fluent Wait - Search element:
-        WebElement btnContinueWithEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(bookingPage.btnContinueWithEmailXPath));
-            }
-        });
+        WebElement btnContinueWithEmail = LoadHelper.getElementByXpath(wait, bookingPage.btnContinueWithEmailXPath);
         btnContinueWithEmail.click();
         //toDo
     }
