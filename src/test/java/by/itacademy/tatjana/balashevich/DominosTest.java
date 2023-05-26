@@ -4,15 +4,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
 import java.util.function.Function;
 
 public class DominosTest {
@@ -36,61 +33,21 @@ public class DominosTest {
 
     @Test
     public void enterWithIncorrectEmailAndAnyPassword() throws InterruptedException {
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        WebElement btnToCloseBunner = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath("//button[@class='custom-button custom-button--primary custom-button--size-medium']"));
-            }
-        });
-        btnToCloseBunner.click();
-        WebElement btnEnterHeader = driver.findElement(By.xpath(dominosPage.btnVoityInHeader));
-        btnEnterHeader.click();
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(dominosPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("@@@@@@@@");
-        WebElement inputPassword = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(dominosPage.inputPassword));
-            }
-        });
-        inputPassword.sendKeys("ZZZZZZ");
-        WebElement btnEnter = driver.findElement(By.xpath(dominosPage.btnVoityInModal));
-        btnEnter.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        dominosPage.clickBtnToCloseBanner(wait);
+        dominosPage.clickBtnEnterHeader(driver);
+        dominosPage.fillInputFieldEmail(wait, "@@@@@@@@");
+        dominosPage.fillInputFieldPwd(wait, "ZZZZZZ");
+        dominosPage.clickBtnEnter(driver);
     }
 
     @Test
     public void enterWithCorrectEmail() throws InterruptedException {
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        WebElement btnToCloseBunner = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath("//button[@class='custom-button custom-button--primary custom-button--size-medium']"));
-            }
-        });
-        btnToCloseBunner.click();
-        WebElement btnEnterHeader = driver.findElement(By.xpath(dominosPage.btnVoityInHeader));
-        btnEnterHeader.click();
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(dominosPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("Maya33@gmail.com");
-        WebElement inputPassword = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(dominosPage.inputPassword));
-            }
-        });
-        inputPassword.sendKeys("ZZZZZZ");
-        WebElement btnEnter = driver.findElement(By.xpath(dominosPage.btnVoityInModal));
-        btnEnter.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        dominosPage.clickBtnToCloseBanner(wait);
+        dominosPage.clickBtnEnterHeader(driver);
+        dominosPage.fillInputFieldEmail(wait, "Maya33@gmail.com");
+        dominosPage.fillInputFieldPwd(wait, "ZZZZZZ");
+        dominosPage.clickBtnEnter(driver);
     }
 }

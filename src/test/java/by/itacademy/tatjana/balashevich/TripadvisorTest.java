@@ -36,11 +36,7 @@ public class TripadvisorTest {
 
     @Test
     public void enterWithEmptyEmailAndEmptyPassword() throws InterruptedException {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         //fluent Wait - Search element:
         WebElement btnCookies = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -85,11 +81,7 @@ public class TripadvisorTest {
 
     @Test
     public void enterWithInvalidEmail() throws InterruptedException {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         //fluent Wait - Search element:
         WebElement btnCookies = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -134,11 +126,7 @@ public class TripadvisorTest {
 
     @Test
     public void enterValidEmailAndEmptyPassword() throws InterruptedException {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         //fluent Wait - Search element:
         WebElement btnCookies = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -183,11 +171,7 @@ public class TripadvisorTest {
 
     @Test
     public void enterValidEmailAndInvalidPassword() throws InterruptedException {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         //fluent Wait - Search element:
         WebElement btnCookies = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {

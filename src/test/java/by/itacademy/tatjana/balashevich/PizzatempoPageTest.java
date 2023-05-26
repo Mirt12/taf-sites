@@ -36,106 +36,46 @@ public class PizzatempoPageTest {
 
     @Test
     public void enterWithEmptyEmailAndEmptyPassword() {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("");
-        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
-        inputPassword.sendKeys("");
-        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
-        btnSearch.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        pizzatempoPage.fillInputFieldEmail(wait, "");
+        pizzatempoPage.fillInputFieldPassword(driver, "");
+        pizzatempoPage.clickSearchButton(driver);
         //toDo
     }
 
     @Test
     public void enterWithInvalidEmail() {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("@@@@@@");
-        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
-        inputPassword.sendKeys("");
-        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
-        btnSearch.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        pizzatempoPage.fillInputFieldEmail(wait, "@@@@@@");
+        pizzatempoPage.fillInputFieldPassword(driver, "");
+        pizzatempoPage.clickSearchButton(driver);
         //toDo
     }
 
     @Test
     public void enterWithEmptyEmailAndAnyPassword() {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("");
-        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
-        inputPassword.sendKeys("ZZZZZZ");
-        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
-        btnSearch.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        pizzatempoPage.fillInputFieldEmail(wait, "");
+        pizzatempoPage.fillInputFieldPassword(driver, "ZZZZZZ");
+        pizzatempoPage.clickSearchButton(driver);
         //toDo
     }
 
     @Test
     public void enterWithValidEmailAndEmptyPassword() {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("Mirt12@yandex.ru");
-        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
-        inputPassword.sendKeys("");
-        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
-        btnSearch.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
+        pizzatempoPage.fillInputFieldPassword(driver, "");
+        pizzatempoPage.clickSearchButton(driver);
         //toDo
     }
 
     @Test
     public void enterWithValidEmailAndAnyPassword() {
-        //fluent Wait- Set up:
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30L))
-                .pollingEvery(Duration.ofSeconds(5L))
-                .ignoring(NoSuchElementException.class);
-        //fluent Wait - Search element:
-        WebElement inputEmail = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(pizzatempoPage.inputEmail));
-            }
-        });
-        inputEmail.sendKeys("Mirt12@yandex.ru");
-        WebElement inputPassword = driver.findElement(By.xpath(pizzatempoPage.inputPassword));
-        inputPassword.sendKeys("ZZZZZZZZ");
-        WebElement btnSearch = driver.findElement(By.xpath(pizzatempoPage.btnSearch));
-        btnSearch.click();
+        Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
+        pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
+        pizzatempoPage.fillInputFieldPassword(driver, "ZZZZZZZZ");
+        pizzatempoPage.clickSearchButton(driver);
         //toDo
     }
 }
