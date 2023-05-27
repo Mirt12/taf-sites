@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.util.function.Function;
-
 public class DominosPage {
 
     String btnVoityInHeaderXPath = "//button[@class='custom-button custom-button--primary custom-button--size-medium']";
