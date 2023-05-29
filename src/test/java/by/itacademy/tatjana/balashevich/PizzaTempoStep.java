@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 public class PizzaTempoStep {
     PizzatempoPage page;
-    WebDriver webDriver;
+    WebDriver driver;
 
-    public PizzaTempoStep(WebDriver webDriver) {
-        this.webDriver = webDriver;
+    public PizzaTempoStep(WebDriver driver) {
+        this.driver = driver;
     }
 
     public void fillingLoginformAndSubmit(String name, String password){

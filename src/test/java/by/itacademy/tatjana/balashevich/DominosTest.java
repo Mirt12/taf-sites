@@ -33,7 +33,7 @@ public class DominosTest {
         dominosPage.clickBtnToCloseBanner(wait);
         dominosPage.clickBtnEnterHeader(driver);
         dominosPage.fillInputFieldEmail(wait, "@@@@@@@@");
-        dominosPage.fillInputFieldPwd(wait, "ZZZZZZ");
+        dominosPage.fillInputFieldPwd(wait, Util.generatePWD());
         dominosPage.clickBtnEnter(driver);
     }
 
@@ -42,8 +42,8 @@ public class DominosTest {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         dominosPage.clickBtnToCloseBanner(wait);
         dominosPage.clickBtnEnterHeader(driver);
-        dominosPage.fillInputFieldEmail(wait, "Maya33@gmail.com");
-        dominosPage.fillInputFieldPwd(wait, "ZZZZZZ");
+        dominosPage.fillInputFieldEmail(wait, Util.generateEmail());
+        dominosPage.fillInputFieldPwd(wait, Util.generatePWD());
         dominosPage.clickBtnEnter(driver);
     }
 }

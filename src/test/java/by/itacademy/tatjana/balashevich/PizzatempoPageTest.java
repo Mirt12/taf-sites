@@ -51,7 +51,7 @@ public class PizzatempoPageTest {
     public void enterWithEmptyEmailAndAnyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "");
-        pizzatempoPage.fillInputFieldPassword("ZZZZZZ");
+        pizzatempoPage.fillInputFieldPassword(Util.generatePWD());
         pizzatempoPage.clickSearchButton();
         //toDo
     }
@@ -59,7 +59,7 @@ public class PizzatempoPageTest {
     @Test
     public void enterWithValidEmailAndEmptyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
-        pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
+        pizzatempoPage.fillInputFieldEmail(wait, Util.generateEmail());
         pizzatempoPage.fillInputFieldPassword("");
         pizzatempoPage.clickSearchButton();
         //toDo
@@ -68,8 +68,8 @@ public class PizzatempoPageTest {
     @Test
     public void enterWithValidEmailAndAnyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
-        pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
-        pizzatempoPage.fillInputFieldPassword("ZZZZZZZZ");
+        pizzatempoPage.fillInputFieldEmail(wait, Util.generateEmail());
+        pizzatempoPage.fillInputFieldPassword(Util.generatePWD());
         pizzatempoPage.clickSearchButton();
         //toDo
     }

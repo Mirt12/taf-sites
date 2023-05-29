@@ -16,5 +16,9 @@ public class Demo {
             String name = faker.name().name();
             System.out.println("Name " + i + " is: " + name);
         }
+
+        String city = faker.address().city();
+        String country = faker.address().country();
+        System.out.println(city + ", " + country);
     }
 }
