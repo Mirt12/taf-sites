@@ -15,7 +15,7 @@ public class Main {
 //        }
 //        System.out.println(name);
 
-        System.out.println(Util.generateEmail());
-        System.out.println(Util.generatePWD());
+//        System.out.println(Util.generateEmail());
+//        System.out.println(Util.generatePWD());
     }
 }
