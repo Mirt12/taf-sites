@@ -10,15 +10,16 @@ import org.openqa.selenium.support.ui.Wait;
 
 
 public class PizzatempoPageTest {
-    PizzatempoPage pizzatempoPage = new PizzatempoPage();
-    ChromeOptions options = new ChromeOptions();
     WebDriver driver;
+    PizzatempoPage pizzatempoPage;
 
     @Before
     public void testSetUp() {
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         driver = new ChromeDriver(options);
+        pizzatempoPage = new PizzatempoPage(driver);
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by");
     }
@@ -32,8 +33,8 @@ public class PizzatempoPageTest {
     public void enterWithEmptyEmailAndEmptyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "");
-        pizzatempoPage.fillInputFieldPassword(driver, "");
-        pizzatempoPage.clickSearchButton(driver);
+        pizzatempoPage.fillInputFieldPassword("");
+        pizzatempoPage.clickSearchButton();
         //toDo
     }
 
@@ -41,8 +42,8 @@ public class PizzatempoPageTest {
     public void enterWithInvalidEmail() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "@@@@@@");
-        pizzatempoPage.fillInputFieldPassword(driver, "");
-        pizzatempoPage.clickSearchButton(driver);
+        pizzatempoPage.fillInputFieldPassword("");
+        pizzatempoPage.clickSearchButton();
         //toDo
     }
 
@@ -50,8 +51,8 @@ public class PizzatempoPageTest {
     public void enterWithEmptyEmailAndAnyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "");
-        pizzatempoPage.fillInputFieldPassword(driver, "ZZZZZZ");
-        pizzatempoPage.clickSearchButton(driver);
+        pizzatempoPage.fillInputFieldPassword("ZZZZZZ");
+        pizzatempoPage.clickSearchButton();
         //toDo
     }
 
@@ -59,8 +60,8 @@ public class PizzatempoPageTest {
     public void enterWithValidEmailAndEmptyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
-        pizzatempoPage.fillInputFieldPassword(driver, "");
-        pizzatempoPage.clickSearchButton(driver);
+        pizzatempoPage.fillInputFieldPassword("");
+        pizzatempoPage.clickSearchButton();
         //toDo
     }
 
@@ -68,8 +69,8 @@ public class PizzatempoPageTest {
     public void enterWithValidEmailAndAnyPassword() {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         pizzatempoPage.fillInputFieldEmail(wait, "Mirt12@yandex.ru");
-        pizzatempoPage.fillInputFieldPassword(driver, "ZZZZZZZZ");
-        pizzatempoPage.clickSearchButton(driver);
+        pizzatempoPage.fillInputFieldPassword("ZZZZZZZZ");
+        pizzatempoPage.clickSearchButton();
         //toDo
     }
 }
