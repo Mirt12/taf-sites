@@ -9,9 +9,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Wait;
 
 public class DominosTest {
+    WebDriver driver;
     DominosPage dominosPage = new DominosPage();
     ChromeOptions options = new ChromeOptions();
-    WebDriver driver;
+    DominosStep dominosStep = new DominosStep();
 
     @Before
     public void testSetUp() {
@@ -30,20 +31,12 @@ public class DominosTest {
     @Test
     public void enterWithIncorrectEmailAndAnyPassword() throws InterruptedException {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
-        dominosPage.clickBtnToCloseBanner(wait);
-        dominosPage.clickBtnEnterHeader(driver);
-        dominosPage.fillInputFieldEmail(wait, "@@@@@@@@");
-        dominosPage.fillInputFieldPwd(wait, Util.generatePWD());
-        dominosPage.clickBtnEnter(driver);
+        dominosStep.openLoginfillLoginFormAndSubmit("@@@@@@@@", Util.generatePWD());
     }
 
     @Test
     public void enterWithCorrectEmail() throws InterruptedException {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
-        dominosPage.clickBtnToCloseBanner(wait);
-        dominosPage.clickBtnEnterHeader(driver);
-        dominosPage.fillInputFieldEmail(wait, Util.generateEmail());
-        dominosPage.fillInputFieldPwd(wait, Util.generatePWD());
-        dominosPage.clickBtnEnter(driver);
+        dominosStep.openLoginfillLoginFormAndSubmit(Util.generateEmail(), Util.generatePWD());
     }
 }

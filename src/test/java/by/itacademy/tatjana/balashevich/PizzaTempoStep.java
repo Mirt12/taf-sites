@@ -5,10 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Wait;
 
 public class PizzaTempoStep {
-    public void fillLoginFormAndSubmit(String email, String password){
-        WebDriver driver;
+    public void fillLoginFormAndSubmit(String email, String password) {
         PizzatempoPage pizzatempoPage;
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         pizzatempoPage = new PizzatempoPage(driver);
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
 
