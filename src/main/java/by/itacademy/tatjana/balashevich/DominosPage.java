@@ -7,10 +7,10 @@ import org.openqa.selenium.support.ui.Wait;
 
 public class DominosPage {
 
-    String btnVoityInHeaderXPath = "//button[@class='custom-button custom-button--primary custom-button--size-medium']";
-    String inputEmailXPath = "//input[@name='email']";
-    String inputPasswordXPath = "//input[@name='password']";
-    String btnVoityInModalXPath = "//button[@class='custom-button custom-button--secondary custom-button--full-width custom-button--size-medium']";
+    private String btnVoityInHeaderXPath = "//button[@class='custom-button custom-button--primary custom-button--size-medium']";
+    private String inputEmailXPath = "//input[@name='email']";
+    private String inputPasswordXPath = "//input[@name='password']";
+    private String btnVoityInModalXPath = "//button[@class='custom-button custom-button--secondary custom-button--full-width custom-button--size-medium']";
 
     public void clickBtnToCloseBanner(Wait wait) {
         WebElement btnToCloseBunner = LoadHelper.getElementByXpath(wait, "//button[@class='custom-button custom-button--primary custom-button--size-medium']");

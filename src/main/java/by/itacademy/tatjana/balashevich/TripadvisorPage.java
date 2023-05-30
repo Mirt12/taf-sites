@@ -7,12 +7,12 @@ import org.openqa.selenium.support.ui.Wait;
 
 public class TripadvisorPage {
 
-    String btnCookiesXPath = "//*[@id='onetrust-accept-btn-handler']";
-    String btnSignInXPath = "//span[contains(text(),'Sign in')]";
-    String btnContinueWithEmailXPath = "//span[contains(text(),'Continue with email')]";
-    String inputEmailXPath = "//input[@id='regSignIn.email']";
-    String inputPasswordXPath = "//input[@id='regSignIn.password']";
-    String btnSingInFrameXPath = "//div[@id='regBody']//button[@type='submit' and contains(text(),'Sign in')]";
+    private String btnCookiesXPath = "//*[@id='onetrust-accept-btn-handler']";
+    private String btnSignInXPath = "//span[contains(text(),'Sign in')]";
+    private String btnContinueWithEmailXPath = "//span[contains(text(),'Continue with email')]";
+    private String inputEmailXPath = "//input[@id='regSignIn.email']";
+    private String inputPasswordXPath = "//input[@id='regSignIn.password']";
+    private String btnSingInFrameXPath = "//div[@id='regBody']//button[@type='submit' and contains(text(),'Sign in')]";
 
     public void clickBtnCookies(Wait wait) {
         WebElement btnCookies = LoadHelper.getElementByXpath(wait, btnCookiesXPath);

@@ -14,8 +14,5 @@ public class Main {
 //            name = name + letter[j];
 //        }
 //        System.out.println(name);
-
-//        System.out.println(Util.generateEmail());
-//        System.out.println(Util.generatePWD());
     }
 }
