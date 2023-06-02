@@ -8,18 +8,14 @@ import org.openqa.selenium.support.ui.Wait;
 import java.util.function.Function;
 
 public class PizzatempoPage {
-    private WebDriver driver;
-    private  String inputEmailXPath = "//input[@name='astroauth_login']";
-    private  String inputPasswordXPath = "//input[@name='astroauth_pass']";
-    private  String btnSearchXPath = "//input[@name='astroauth_submit']";
-    //constructor for WebDriver:
-    public PizzatempoPage(WebDriver newDriver){
-        driver = newDriver;
-    }
+    WebDriver driver;
+    private String inputEmailXPath = "//input[@name='astroauth_login']";
+    private String inputPasswordXPath = "//input[@name='astroauth_pass']";
+    private String btnSearchXPath = "//input[@name='astroauth_submit']";
 
-    public void clickSearchButton() {
-        WebElement btnSearch = driver.findElement(By.xpath(btnSearchXPath));
-        btnSearch.click();
+    //constructor for WebDriver:
+    public PizzatempoPage(WebDriver newDriver) {
+        driver = newDriver;
     }
 
     public void fillInputFieldEmail(Wait wait, String email) {
@@ -34,5 +30,10 @@ public class PizzatempoPage {
     public void fillInputFieldPassword(String password) {
         WebElement inputPassword = driver.findElement(By.xpath(inputPasswordXPath));
         inputPassword.sendKeys(password);
+    }
+
+    public void clickSearchButton() {
+        WebElement btnSearch = driver.findElement(By.xpath(btnSearchXPath));
+        btnSearch.click();
     }
 }
