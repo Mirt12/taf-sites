@@ -1,5 +1,7 @@
-package by.itacademy.tatjana.balashevich;
+package tests;
 
+import utils.LoadHelper;
+import pages.TripadvisorPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

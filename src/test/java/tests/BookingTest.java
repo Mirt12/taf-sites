@@ -1,5 +1,7 @@
-package by.itacademy.tatjana.balashevich;
+package tests;
 
+import pages.BookingPage;
+import utils.LoadHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

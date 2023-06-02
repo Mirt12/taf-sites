@@ -1,11 +1,14 @@
-package by.itacademy.tatjana.balashevich;
+package tests;
 
+import pages.PizzatempoPage;
+import utils.Util;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import steps.PizzaTempoStep;
 
 
 public class PizzatempoPageTest {

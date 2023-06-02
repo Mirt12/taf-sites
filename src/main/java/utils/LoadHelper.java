@@ -1,4 +1,4 @@
-package by.itacademy.tatjana.balashevich;
+package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

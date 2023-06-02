@@ -1,5 +1,9 @@
-package by.itacademy.tatjana.balashevich;
+package tests;
 
+import pages.DominosPage;
+import steps.DominosStep;
+import utils.LoadHelper;
+import utils.Util;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
