@@ -1,5 +1,8 @@
 package tests;
 
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.DominosPage;
 import steps.DominosStep;
 import utils.LoadHelper;
@@ -35,12 +38,18 @@ public class DominosTest {
     @Test
     public void enterWithIncorrectEmailAndAnyPassword() throws InterruptedException {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
-        dominosStep.openLoginfillLoginFormAndSubmit("@@@@@@@@", Util.generatePWD());
+        dominosStep.openLoginfillLoginFormAndSubmit("4444", Util.generatePWD());
+        //toDo
+//        WebElement actualMessage = driver.findElement(By.xpath("//div[@id='alert']//div[contains(text(),'Неверно указано имя пользователя или пароль.')]"));
+//        String actualMessageText = actualMessage.getText();
+//        String expectedMessageText = "Please include an '@'     ...\nOk";
+//        Assertions.assertEquals(expectedMessageText, actualMessageText);
     }
 
     @Test
     public void enterWithCorrectEmail() throws InterruptedException {
         Wait<WebDriver> wait = LoadHelper.wait30seconds(driver);
         dominosStep.openLoginfillLoginFormAndSubmit(Util.generateEmail(), Util.generatePWD());
+        //toDo
     }
 }
