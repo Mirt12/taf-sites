@@ -1,4 +1,4 @@
-package tests;
+package by.itacademy.tatjana.balashevich.tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.After;
@@ -9,15 +9,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
-import utils.LoadHelper;
-import utils.Util;
+import by.itacademy.tatjana.balashevich.utils.LoadHelper;
+import by.itacademy.tatjana.balashevich.utils.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import steps.PizzaTempoStep;
+import by.itacademy.tatjana.balashevich.steps.PizzaTempoStep;
 
 import java.io.UnsupportedEncodingException;
-import java.time.Instant;
 
 
 public class PizzatempoPageTest {
@@ -38,7 +37,7 @@ public class PizzatempoPageTest {
 
     @After
     public void testToFinish() {
-        //driver.quit();
+        driver.quit();
     }
 
     @Test

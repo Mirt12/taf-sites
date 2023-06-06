@@ -1,7 +1,7 @@
-package steps;
+package by.itacademy.tatjana.balashevich.steps;
 
-import pages.DominosPage;
-import utils.LoadHelper;
+import by.itacademy.tatjana.balashevich.pages.DominosPage;
+import by.itacademy.tatjana.balashevich.utils.LoadHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Wait;

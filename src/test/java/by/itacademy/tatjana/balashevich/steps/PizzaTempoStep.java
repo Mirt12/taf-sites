@@ -1,9 +1,8 @@
-package steps;
+package by.itacademy.tatjana.balashevich.steps;
 
-import utils.LoadHelper;
-import pages.PizzatempoPage;
+import by.itacademy.tatjana.balashevich.utils.LoadHelper;
+import by.itacademy.tatjana.balashevich.pages.PizzatempoPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Wait;
 
 public class PizzaTempoStep {

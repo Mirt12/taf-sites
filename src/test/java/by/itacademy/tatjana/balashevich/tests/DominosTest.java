@@ -1,12 +1,9 @@
-package tests;
+package by.itacademy.tatjana.balashevich.tests;
 
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import pages.DominosPage;
-import steps.DominosStep;
-import utils.LoadHelper;
-import utils.Util;
+import by.itacademy.tatjana.balashevich.pages.DominosPage;
+import by.itacademy.tatjana.balashevich.steps.DominosStep;
+import by.itacademy.tatjana.balashevich.utils.LoadHelper;
+import by.itacademy.tatjana.balashevich.utils.Util;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package pages;
+package by.itacademy.tatjana.balashevich.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

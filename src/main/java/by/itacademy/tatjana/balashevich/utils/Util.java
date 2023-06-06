@@ -1,4 +1,4 @@
-package utils;
+package by.itacademy.tatjana.balashevich.utils;
 
 import com.github.javafaker.Faker;
 
