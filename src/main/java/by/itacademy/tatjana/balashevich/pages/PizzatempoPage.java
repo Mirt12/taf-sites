@@ -12,8 +12,8 @@ public class PizzatempoPage {
     private String inputEmailXPath = "//input[@name='astroauth_login']";
     private String inputPasswordXPath = "//input[@name='astroauth_pass']";
     private String btnSearchXPath = "//input[@name='astroauth_submit']";
+    private String alertMessage = "Заполните форму";
 
-    //constructor for WebDriver:
     public PizzatempoPage(WebDriver newDriver) {
         driver = newDriver;
     }
