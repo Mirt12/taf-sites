@@ -1,5 +1,6 @@
 package by.itacademy.tatjana.balashevich.tests;
 
+import by.itacademy.tatjana.balashevich.pages.PizzatempoPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
@@ -29,10 +30,10 @@ public class PizzatempoPageTest {
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         driver = new ChromeDriver(options);
-
         pizzaTempoStep = new PizzaTempoStep(driver);
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by");
+
     }
 
     @After
@@ -47,7 +48,7 @@ public class PizzatempoPageTest {
         Alert alert = (Alert) wait.until(ExpectedConditions.alertIsPresent());
         String actualText = alert.getText();
         String expectedMessageText = "Заполните форму";
-        Assertions.assertEquals(expectedMessageText, actualText);
+                Assertions.assertEquals(expectedMessageText, actualText);
     }
 
     @Test
