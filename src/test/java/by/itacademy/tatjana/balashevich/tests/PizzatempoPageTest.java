@@ -33,7 +33,6 @@ public class PizzatempoPageTest {
         pizzaTempoStep = new PizzaTempoStep(driver);
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by");
-
     }
 
     @After
