@@ -7,31 +7,33 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class BolComPage {
+public class MeetUp {
     @Test
-    public void openBrowserTest(){
+    public void openBrowserTest() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://www.bol.com/nl/nl/");
-        String homePageAcceptAllCookiesBtnLocator ="//button[@id='js-first-screen-accept-all-button']";
-        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptAllCookiesBtnLocator));
+        driver.get("https://www.meetup.com/");
+        Thread.sleep(2000);
+        String homePageAcceptCookiesBtnLocator ="//button[@id='onetrust-accept-btn-handler']";
+        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptCookiesBtnLocator));
         submitCookiesBtn.click();
         //to check GET response
         driver.quit();
     }
     @Test
-    public void openLoginForm(){
+    public void openLoginForm() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://www.bol.com/nl/nl/");
-        String homePageAcceptAllCookiesBtnLocator ="//button[@id='js-first-screen-accept-all-button']";
-        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptAllCookiesBtnLocator));
+        driver.get("https://www.meetup.com/");
+        Thread.sleep(2000);
+        String homePageAcceptCookiesBtnLocator ="//button[@id='onetrust-accept-btn-handler']";
+        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptCookiesBtnLocator));
         submitCookiesBtn.click();
         //open LoginForm:
         String homePageInloggenLinkLocator = "//header//span[@class='u-show-block@screen-xl-up' and contains(text(),'Inloggen')]";
@@ -42,33 +44,31 @@ public class BolComPage {
     }
 
     @Test
-    public void toFillLoginFormByValidData(){
+    public void toFillLoginFormByValidData() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--disable-cache");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://www.bol.com/nl/nl/");
-        String homePageAcceptAllCookiesBtnLocator ="//button[@id='js-first-screen-accept-all-button']";
-        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptAllCookiesBtnLocator));
+        driver.get("https://www.meetup.com/");
+        Thread.sleep(2000);
+        String homePageAcceptCookiesBtnLocator ="//button[@id='onetrust-accept-btn-handler']";
+        WebElement submitCookiesBtn = driver.findElement(By.xpath(homePageAcceptCookiesBtnLocator));
         submitCookiesBtn.click();
-        String homePageInloggenLinkLocator = "//header//span[@class='u-show-block@screen-xl-up' and contains(text(),'Inloggen')]";
-        WebElement loginFormLink = driver.findElement(By.xpath(homePageInloggenLinkLocator));
+        String homePageLogInLinkLocator = "//a[@id='login-link']";
+        WebElement loginFormLink = driver.findElement(By.xpath(homePageLogInLinkLocator));
         loginFormLink.click();
         //to fill the form
-        String loginFormInputEmailLocator = "//input[@id='login_email']";
-        String loginFormInputPwdLocator = "//input[@id='login_password']";
-        String loginFormInloggenButtonLocator = "//form[@id='existinguser']//button[@name='submit']";
+        String loginFormInputEmailLocator = "//input[@id='email']";
+        String loginFormInputPwdLocator = "//input[@id='current-password']";
+
         WebElement emailInputField = driver.findElement(By.xpath(loginFormInputEmailLocator));
-        emailInputField.sendKeys("Mirt12@yandex.ru");
+        emailInputField.sendKeys("tbalashevich@bk.ru");
         WebElement pwdInputField = driver.findElement(By.xpath(loginFormInputPwdLocator));
-        pwdInputField.sendKeys("cocosankA_9");
-        WebElement inloggenButton = driver.findElement(By.xpath(loginFormInloggenButtonLocator));
-        inloggenButton.click();
-        //driver.quit();
+        pwdInputField.sendKeys("testinG@2579!");
+        String submitLoginFormButtonLocator = "//button[contains(text(),'Log in')]";
+        WebElement submitLoginFormButton = driver.findElement(By.xpath(submitLoginFormButtonLocator));
+        submitLoginFormButton.click();
+        driver.quit();
     }
-
-
-
-
 }
